@@ -15,7 +15,6 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-
     if message.content.startswith('%joke'): # joke commands
         joke = joke_api.get_joke()
         print(joke)
@@ -24,7 +23,7 @@ async def on_message(message):
             await message.channel.send("Couldn't get joke from API. Try again later.") # joke failed
         else:
             await message.channel.send(joke['setup'] + '\n' + joke['punchline'])
-@client.event
+
 async def on_message(message):
     if message.content.startswith('%help'):
         embedVar = discord.Embed(title="Potato Bot", description="%joke for a joke", color=0x00ff00)
